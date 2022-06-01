@@ -28,16 +28,16 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(incrementAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(incrementAsync.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.value += action.payload;
-      });
+    incrementRequest:(state,action)=>{
+      state.status='loading';
+    },
+    incrementSuccess:(state,action)=>{
+      
+    },
+    incrementError:(state,action)=>{
+      
+    },
+
   },
 });
 
