@@ -1,8 +1,11 @@
 import createSagaMiddleware from 'redux-saga';
 import {all} from 'redux-saga/effects'
+import counterSaga from './counter.saga';
 
-export default sagaMW = createSagaMiddleware();
+export const sagaMW = createSagaMiddleware();
 
 export function* rootSaga(){
-  yield all([]);
+  yield all([
+    counterSaga(),
+  ]);
 }
