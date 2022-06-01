@@ -32,16 +32,18 @@ export const counterSlice = createSlice({
       state.status='loading';
     },
     incrementSuccess:(state,action)=>{
-      
+      state.status='idle';
+      state.value +=1;
     },
     incrementError:(state,action)=>{
-      
+      state.status='error';
+      state.error=action.payload;
     },
 
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount,incrementSuccess,incrementRequest,incrementError } = counterSlice.actions;
 
 export const selectCount = (state) => state.counter.value;
 
